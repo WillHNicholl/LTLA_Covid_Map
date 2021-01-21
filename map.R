@@ -8,9 +8,7 @@ library(gganimate)
 library(rmapshaper)
 
 
-#setwd("C:/Users/331180/Documents/R/Other")
-
-covid_age <- read_csv("V:/BPI_AA_PROJECT/policy_wider_analysis/cross_border/Will_N_vdi_tasks/other/ltla_2021-01-14.csv")
+covid_age <- read_csv("ltla_2021-01-14.csv")
 
 covid_age <- covid_age %>%
   filter(areaType == "ltla")
@@ -38,7 +36,7 @@ df1 <- covid_age %>%
 #   scale_x_continuous(breaks = seq(0, 5000, 100)) +
 #   theme(axis.text = element_text(angle = 45))
 
-geo <- raster::shapefile("V:/BPI_AA_PROJECT/policy_wider_analysis/cross_border/Will_N_vdi_tasks/other/Local_Authority_Districts__May_2020__Boundaries_UK_BFE.shp")
+geo <- raster::shapefile("Local_Authority_Districts__May_2020__Boundaries_UK_BFE.shp")
 
 
 
@@ -124,7 +122,7 @@ animate(gg,
         end_pause = 50,
         width = 1200,
         height = 900,
-        renderer = gifski_renderer("V:/BPI_AA_PROJECT/policy_wider_analysis/cross_border/Will_N_vdi_tasks/other/gganim_map_covid4.gif"))
+        renderer = gifski_renderer("gganim_map_covid.gif"))
 
 
 # rm(covid_age, df1, geo, map.df)
